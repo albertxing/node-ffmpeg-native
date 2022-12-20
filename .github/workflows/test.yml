@@ -22,5 +22,6 @@ jobs:
       - name: Run a one-line script
         working-directory: ./ffmpeg
         run: |
+          brew install automake shtool texi2html wget nasm
           ./configure
           make
