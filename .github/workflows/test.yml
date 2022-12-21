@@ -43,7 +43,7 @@ jobs:
       - name: Build ffmpeg
         working-directory: ./src/ffmpeg
         run: |
-          C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat amd64
+          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" amd64
           ./configure --toolchain=msvc
           make -j4
 
