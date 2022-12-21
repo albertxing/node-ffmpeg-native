@@ -19,9 +19,14 @@ jobs:
           submodules: true
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        working-directory: ./ffmpeg
+      - name: Build ffmpeg
+        working-directory: ./src/ffmpeg
         run: |
           brew install automake shtool texi2html wget nasm
           ./configure
-          make
+          make -j4
+
+      - name: Build libffmpeg
+        working-directory: ./src
+        run: |
+          make libffmpeg.a
