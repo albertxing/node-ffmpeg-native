@@ -43,8 +43,9 @@ jobs:
       - name: Build ffmpeg
         working-directory: ./src
         run: |
-          cmd "/C \"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat\" x64"
-        shell: bash
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+          C:\msys64\usr\bin\env.exe MSYSTEM=MSYS ./win/build.sh
+        shell: cmd
 
       # - name: Build libffmpeg
       #   working-directory: ./src
