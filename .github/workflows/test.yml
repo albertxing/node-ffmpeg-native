@@ -40,6 +40,9 @@ jobs:
           submodules: true
       
       - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MSYS
+          path-type: inherit
 
       # Runs a single command using the runners shell
       - name: Build ffmpeg
