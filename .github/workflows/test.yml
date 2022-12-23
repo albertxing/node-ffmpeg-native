@@ -44,8 +44,11 @@ jobs:
           msystem: MSYS
           path-type: inherit
           release: false
-      
-      - uses: ilammy/setup-nasm@v1
+          install: >-
+            make
+            pkgconf
+            diffutils
+            nasm
 
       # Runs a single command using the runners shell
       - name: Build ffmpeg
