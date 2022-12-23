@@ -18,19 +18,49 @@
 				"../src/ffmpeg/libswresample/libswresample.a",
 				"../src/ffmpeg/libswscale/libswscale.a",
 				"../src/libffmpeg.a",
-				"-framework AppKit",
-				"-framework AudioToolbox",
-				"-framework AVFoundation",
-				"-framework CoreAudio",
-				"-framework CoreFoundation",
-				"-framework CoreGraphics",
-				"-framework CoreImage",
-				"-framework CoreMedia",
-				"-framework CoreServices",
-				"-framework CoreVideo",
-				"-framework Foundation",
-				"-framework OpenGL",
-				"-framework VideoToolbox",
+			],
+			"conditions": [
+				["OS=='mac'", {
+					"libraries": [
+						"-framework AppKit",
+						"-framework AudioToolbox",
+						"-framework AVFoundation",
+						"-framework CoreAudio",
+						"-framework CoreFoundation",
+						"-framework CoreGraphics",
+						"-framework CoreImage",
+						"-framework CoreMedia",
+						"-framework CoreServices",
+						"-framework CoreVideo",
+						"-framework Foundation",
+						"-framework OpenGL",
+						"-framework VideoToolbox"
+					]
+				}],
+				["OS=='win'", {
+					"libraries": [
+						"psapi.lib",
+						"ole32.lib",
+						"strmiids.lib",
+						"uuid.lib",
+						"oleaut32.lib",
+						"shlwapi.lib",
+						"gdi32.lib",
+						"vfw32.lib",
+						"secur32.lib",
+						"ws2_32.lib",
+						"mfuuid.lib",
+						"ole32.lib",
+						"strmiids.lib",
+						"ole32.lib",
+						"user32.lib",
+						"user32.lib",
+						"bcrypt.lib",
+						"ole32.lib",
+						"psapi.lib",
+						"shell32.lib"
+					]
+				}]
 			]
 		}
 	],

@@ -3,5 +3,5 @@
 
 int ffmpeg(int argc, char** argv) {
 	printf("%s\n", "hello world from libffmpeg");
-	return ffmpeg_main(argc, argv);
+	return main(argc, argv);
 }
