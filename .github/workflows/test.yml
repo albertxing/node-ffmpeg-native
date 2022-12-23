@@ -5,17 +5,17 @@ on:
 
 jobs:
   build-mac:
-    # The type of runner that the job will run on
     runs-on: macos-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
           submodules: true
+          
+      - uses: actions/setup-node@v3.5.1
+        with:
+          node-version: latest
 
-      # Runs a single command using the runners shell
       - name: Build ffmpeg
         working-directory: ./src/ffmpeg
         run: |
@@ -41,12 +41,9 @@ jobs:
           path: prebuilds
 
   build-win:
-    # The type of runner that the job will run on
     runs-on: windows-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
           submodules: true
@@ -62,8 +59,7 @@ jobs:
             diffutils
             nasm
 
-      # Runs a single command using the runners shell
-      - name: Build ffmpeg
+      - name: Build ffmpeg and libffmpeg
         working-directory: ./src
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
