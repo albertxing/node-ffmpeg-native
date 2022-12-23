@@ -1,11 +1,21 @@
+ifeq ($(OS), Windows_NT)
+	CC = cl
+	CCFLAGS += -Fo$@ -Iffmpeg/compat/atomics/win32
+	AR = lib
+	ARFLAGS = -out:$@
+else
+	AR = ar
+	ARFLAGS += $@
+endif
+
 ffmpeg.o: ffmpeg/fftools/ffmpeg.c
-	$(CC) -Iffmpeg -c -Dmain=ffmpeg_main ffmpeg/fftools/ffmpeg.c
+	$(CC) $(CCFLAGS) -Iffmpeg -c ffmpeg/fftools/ffmpeg.c
 
 libffmpeg.o: libffmpeg.c libffmpeg.h ffmpeg_main.h
-	$(CC) -Iffmpeg -c libffmpeg.c
+	$(CC) $(CCFLAGS) -Iffmpeg -c libffmpeg.c
 
 libffmpeg.a: libffmpeg.o ffmpeg.o
-	ar rc libffmpeg.a \
+	$(AR) $(ARFLAGS) \
 		ffmpeg/fftools/ffmpeg_filter.o \
 		ffmpeg/fftools/ffmpeg_hw.o \
 		ffmpeg/fftools/ffmpeg_mux.o \

@@ -4,6 +4,7 @@
   "description": "node native module for the ffmpeg binary",
   "main": "lib/index.js",
   "scripts": {
+    "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
   "repository": {
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/albertxing/node-ffmpeg#readme",
   "dependencies": {
-    "node-addon-api": "^5.0.0"
+    "node-addon-api": "^5.0.0",
+    "node-gyp-build": "^4.5.0"
+  },
+  "devDependencies": {
+    "prebuildify": "^5.0.1"
   }
 }
