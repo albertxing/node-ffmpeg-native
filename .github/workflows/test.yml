@@ -62,3 +62,10 @@ jobs:
       #   working-directory: ./src
       #   run: |
       #     make libffmpeg.a
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ffmpeg
+          path: src/ffmpeg/ffmpeg.exe
+
