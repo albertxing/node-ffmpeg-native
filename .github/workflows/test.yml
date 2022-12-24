@@ -81,7 +81,7 @@ jobs:
           ./configure --arch=arm64 --target-os=darwin --enable-cross-compile --cc=/usr/bin/clang --extra-cflags="-target arm64-apple-macos11" --extra-ldflags="-target arm64-apple-macos11"
           make -j4
           cd ..
-          make libffmpeg.a
+          make CCFLAGS="-target arm64-apple-macos11" libffmpeg.a
 
       - name: npm
         run: |
