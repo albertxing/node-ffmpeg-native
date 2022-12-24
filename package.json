@@ -3,20 +3,24 @@
   "version": "0.0.1",
   "description": "node native module for the ffmpeg binary",
   "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "prebuilds/"
+  ],
   "scripts": {
-    "install": "node-gyp-build",
+    "install": "PREBUILDS_ONLY=1 node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/albertxing/node-ffmpeg.git"
   },
-  "author": "",
+  "author": "Albert Xing",
   "gypfile": true,
   "bugs": {
     "url": "https://github.com/albertxing/node-ffmpeg/issues"
   },
-  "homepage": "https://github.com/albertxing/node-ffmpeg#readme",
+  "homepage": "https://github.com/albertxing/node-ffmpeg",
   "dependencies": {
     "node-addon-api": "^5.0.0",
     "node-gyp-build": "^4.5.0"
