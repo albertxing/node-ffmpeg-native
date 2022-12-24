@@ -9,7 +9,7 @@
     "prebuilds/"
   ],
   "scripts": {
-    "install": "PREBUILDS_ONLY=1 node-gyp-build",
+    "install": "node-gyp-build",
     "rebuild": "node-gyp rebuild"
   },
   "repository": {
