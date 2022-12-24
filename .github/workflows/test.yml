@@ -34,7 +34,9 @@ jobs:
           make libffmpeg.a
 
       - name: npm
-        run: npm i --ignore-scripts
+        run: |
+          npm install -g node-gyp
+          npm i --ignore-scripts
 
       - name: Prebuild
         run: npx prebuild --napi
@@ -80,7 +82,9 @@ jobs:
         shell: cmd
 
       - name: npm
-        run: npm i --ignore-scripts
+        run: |
+          npm install -g node-gyp
+          npm i --ignore-scripts
 
       - name: Prebuild
         run: npx prebuild --napi
