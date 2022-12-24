@@ -147,3 +147,18 @@ jobs:
         with:
           name: prebuild-win-x64
           path: prebuilds
+          
+  release:
+    needs: [build-mac-x64, build-mac-arm64, build-win-x64]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Download prebuilds
+        uses: actions/download-artifact@v3
+        with:
+          path: prebuilds
+      - name: npm publish dry-run
+        run: npm publish --dry-run
