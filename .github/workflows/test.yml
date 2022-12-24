@@ -39,7 +39,6 @@ jobs:
 
       - name: npm
         run: |
-          npm install -g node-gyp
           npm i --ignore-scripts
 
       - name: Prebuild
@@ -91,7 +90,6 @@ jobs:
 
       - name: npm
         run: |
-          npm install -g node-gyp
           npm i --ignore-scripts
 
       - name: Prebuild
