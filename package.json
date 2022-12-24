@@ -1,6 +1,6 @@
 {
   "name": "ffmpeg-native",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "node native module for the ffmpeg binary",
   "license": "LGPL-2.1-only",
   "main": "lib/index.js",
