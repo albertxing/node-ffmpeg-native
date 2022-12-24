@@ -33,17 +33,17 @@ jobs:
           cd ..
           make libffmpeg.a
 
-      # - name: npm
-      #   run: npm i --ignore-scripts
+      - name: npm
+        run: npm i --ignore-scripts
 
-      # - name: Prebuild
-      #   run: npx prebuild --napi
+      - name: Prebuild
+        run: npx prebuild --napi
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: prebuild-mac
-      #     path: prebuilds
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: prebuild-mac
+          path: prebuilds
 
   build-win:
     runs-on: windows-latest
@@ -79,14 +79,14 @@ jobs:
           msys2 -c "./win/build.sh"
         shell: cmd
 
-      # - name: npm
-      #   run: npm i --ignore-scripts
+      - name: npm
+        run: npm i --ignore-scripts
 
-      # - name: Prebuild
-      #   run: npx prebuild --napi
+      - name: Prebuild
+        run: npx prebuild --napi
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: prebuild-win
-      #     path: prebuilds
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: prebuild-win
+          path: prebuilds
