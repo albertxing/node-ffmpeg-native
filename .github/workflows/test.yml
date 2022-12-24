@@ -50,7 +50,7 @@ jobs:
           name: prebuild-mac-x64
           path: prebuilds
 
-  build-mac-arm:
+  build-mac-arm64:
     runs-on: macos-latest
 
     steps:
@@ -78,7 +78,7 @@ jobs:
         working-directory: ./src/ffmpeg
         run: |
           brew install automake shtool texi2html wget nasm
-          ./configure --arch=arm64
+          ./configure --arch=arm64 --target-os=darwin --enable-cross-compile --cc=/usr/bin/clang --extra-cflags="-target arm64-apple-macos11" --extra-ldflags="-target arm64-apple-macos11"
           make -j4
           cd ..
           make libffmpeg.a
