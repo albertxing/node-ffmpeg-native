@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/albertxing/node-ffmpeg.git"
+    "url": "git+https://github.com/albertxing/node-ffmpeg-native.git"
   },
   "author": "Albert Xing",
   "gypfile": true,
   "bugs": {
-    "url": "https://github.com/albertxing/node-ffmpeg/issues"
+    "url": "https://github.com/albertxing/node-ffmpeg-native/issues"
   },
-  "homepage": "https://github.com/albertxing/node-ffmpeg",
+  "homepage": "https://github.com/albertxing/node-ffmpeg-native",
   "dependencies": {
     "node-addon-api": "^5.0.0",
     "node-gyp-build": "^4.5.0"
