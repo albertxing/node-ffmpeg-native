@@ -42,7 +42,7 @@ jobs:
           npm i --ignore-scripts
 
       - name: Prebuild
-        run: npx prebuildify --napi
+        run: npx prebuildify --napi --strip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -88,7 +88,7 @@ jobs:
           npm i --ignore-scripts
 
       - name: Prebuild
-        run: npx prebuildify --napi --arch arm64
+        run: npx prebuildify --napi --arch arm64 --strip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -139,7 +139,7 @@ jobs:
           npm i --ignore-scripts
 
       - name: Prebuild
-        run: npx prebuildify --napi
+        run: npx prebuildify --napi --strip
         shell: cmd
 
       - name: Upload artifacts
