@@ -6,14 +6,14 @@ extern "C" {
 #include "libffmpeg.h"
 }
 
-using namespace Napi;
-
-void Run(const Napi::CallbackInfo& args) {
+Napi::Value Run(const Napi::CallbackInfo& args) {
 	Napi::Env env = args.Env();
 
 	char** argv = new char*[args.Length() + 2];
 
 	argv[0] = "ffmpeg";
+	
+	std::cout << "hello from node_ffmpeg! " << args.Length() << " args: ";
 
 	for (int i = 0; i < args.Length(); i++) {
 		Napi::String nstr = args[i].ToString();
@@ -21,9 +21,13 @@ void Run(const Napi::CallbackInfo& args) {
 
 		char* arg = new char[str.length() + 1];
 		strcpy(arg, str.c_str());
+		
+		std::cout << str << " ";
 
 		argv[i + 1] = arg;
 	}
+	
+	std::cout << std::endl;
 
 	argv[args.Length() + 1] = nullptr;
 
