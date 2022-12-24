@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/albertxing/node-ffmpeg-native/issues"
   },
-  "homepage": "https://github.com/albertxing/node-ffmpeg-native",
+  "homepage": "https://github.com/albertxing/node-ffmpeg-native#readme",
   "dependencies": {
     "node-addon-api": "^5.0.0",
     "node-gyp-build": "^4.5.0"
