@@ -38,6 +38,8 @@ Napi::Value Run(const Napi::CallbackInfo& args) {
 	}
 
 	delete[] argv;
+	
+	return env.Undefined();
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
