@@ -156,9 +156,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Download prebuilds
-        uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v3
         with:
+          name: prebuild-mac-x64
+          path: prebuilds
+      - uses: actions/download-artifact@v3
+        with:
+          name: prebuild-mac-arm64
+          path: prebuilds
+      - uses: actions/download-artifact@v3
+        with:
+          name: prebuild-win-x64
           path: prebuilds
       - name: npm publish dry-run
         run: npm publish --dry-run
