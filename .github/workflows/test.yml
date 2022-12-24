@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-mac:
+  build-mac-x64:
     runs-on: macos-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: src
-          key: ${{ runner.os }}-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE') }}
+          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE') }}
 
       - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
         name: Build ffmpeg & libffmpeg
@@ -47,10 +47,56 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: prebuild-mac
+          name: prebuild-mac-x64
           path: prebuilds
 
-  build-win:
+  build-mac-arm:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Cache ffmpeg build
+        id: cache-ffmpeg
+        uses: actions/cache@v3
+        with:
+          path: src
+          key: ${{ runner.os }}-arm64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE') }}
+
+      - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
+        name: Build ffmpeg & libffmpeg
+        working-directory: ./src/ffmpeg
+        run: |
+          brew install automake shtool texi2html wget nasm
+          ./configure --arch=arm64
+          make -j4
+          cd ..
+          make libffmpeg.a
+
+      - name: npm
+        run: |
+          npm i --ignore-scripts
+
+      - name: Prebuild
+        run: npx prebuildify --napi --arch arm64
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: prebuild-mac-arm64
+          path: prebuilds
+
+  build-win-x64:
     runs-on: windows-latest
 
     steps:
@@ -78,7 +124,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: src
-          key: ${{ runner.os }}-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE') }}
+          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE') }}
           
       - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
         name: Build ffmpeg & libffmpeg
@@ -99,5 +145,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: prebuild-win
+          name: prebuild-win-x64
           path: prebuilds
