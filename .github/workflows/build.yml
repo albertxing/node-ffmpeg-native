@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: src
-          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*') }}
+          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*.c', 'src/*.h', 'src/Makefile') }}
 
       - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
         name: Build ffmpeg & libffmpeg
@@ -36,11 +36,9 @@ jobs:
           make -j4
           cd ..
           make libffmpeg.a
-
       - name: npm
         run: |
           npm i --ignore-scripts
-
       - name: Prebuild
         run: npx prebuildify --napi --strip
 
@@ -71,7 +69,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: src
-          key: ${{ runner.os }}-arm64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*') }}
+          key: ${{ runner.os }}-arm64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*.c', 'src/*.h', 'src/Makefile') }}
 
       - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
         name: Build ffmpeg & libffmpeg
@@ -82,11 +80,9 @@ jobs:
           make -j4
           cd ..
           make CCFLAGS="-target arm64-apple-macos11" libffmpeg.a
-
       - name: npm
         run: |
           npm i --ignore-scripts
-
       - name: Prebuild
         run: npx prebuildify --napi --arch arm64 --strip
 
@@ -124,7 +120,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: src
-          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*') }}
+          key: ${{ runner.os }}-x64-ffmpeg-${{ hashFiles('src/ffmpeg/RELEASE', 'src/*.c', 'src/*.h', 'src/Makefile', 'src/win/build.sh') }}
           
       - if: ${{ steps.cache-ffmpeg.outputs.cache-hit != 'true' }}
         name: Build ffmpeg & libffmpeg
@@ -137,7 +133,6 @@ jobs:
       - name: npm
         run: |
           npm i --ignore-scripts
-
       - name: Prebuild
         run: npx prebuildify --napi --strip
         shell: cmd
