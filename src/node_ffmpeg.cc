@@ -3,7 +3,7 @@
 #include <string>
 
 extern "C" {
-#include "libffmpeg.h"
+#include "libffmpeg/libffmpeg.h"
 }
 
 Napi::Value Run(const Napi::CallbackInfo& args) {

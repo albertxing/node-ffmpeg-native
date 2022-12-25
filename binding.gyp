@@ -10,14 +10,14 @@
 				"NAPI_DISABLE_CPP_EXCEPTIONS"
 			],
 			"libraries": [
-				"../src/ffmpeg/libavformat/libavformat.a",
-				"../src/ffmpeg/libavcodec/libavcodec.a",
-				"../src/ffmpeg/libavutil/libavutil.a",
-				"../src/ffmpeg/libavfilter/libavfilter.a",
-				"../src/ffmpeg/libavdevice/libavdevice.a",
-				"../src/ffmpeg/libswresample/libswresample.a",
-				"../src/ffmpeg/libswscale/libswscale.a",
-				"../src/libffmpeg.a",
+				"../src/libffmpeg/ffmpeg/libavformat/libavformat.a",
+				"../src/libffmpeg/ffmpeg/libavcodec/libavcodec.a",
+				"../src/libffmpeg/ffmpeg/libavutil/libavutil.a",
+				"../src/libffmpeg/ffmpeg/libavfilter/libavfilter.a",
+				"../src/libffmpeg/ffmpeg/libavdevice/libavdevice.a",
+				"../src/libffmpeg/ffmpeg/libswresample/libswresample.a",
+				"../src/libffmpeg/ffmpeg/libswscale/libswscale.a",
+				"../src/libffmpeg/libffmpeg.a",
 			],
 			"conditions": [
 				["OS=='mac'", {
