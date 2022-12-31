@@ -90,7 +90,7 @@ jobs:
           npm i --ignore-scripts
 
       - name: Prebuild
-        run: npx prebuildify --napi --arch arm64 --strip
+        run: npx prebuildify --napi --arch arm64 --tag-armv 8 --strip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
