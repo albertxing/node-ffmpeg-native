@@ -1,13 +1,13 @@
 {
   "name": "ffmpeg-native",
-  "version": "0.0.1-alpha.9",
+  "version": "0.0.1-alpha.10",
   "description": "node native module for the ffmpeg binary",
   "license": "LGPL-2.1-or-later",
   "main": "index.js",
   "files": [
-    "lib/",
     "prebuilds/",
-    "binding.gyp"
+    "binding.gyp",
+    "*.js"
   ],
   "scripts": {
     "install": "node-gyp-build",
