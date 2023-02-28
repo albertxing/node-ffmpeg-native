@@ -22,5 +22,7 @@ libffmpeg.a: libffmpeg.o ffmpeg.o
 		ffmpeg/fftools/ffmpeg_opt.o \
 		ffmpeg/fftools/cmdutils.o \
 		ffmpeg/fftools/opt_common.o \
+		ffmpeg/fftools/sync_queue.o \
+		ffmpeg/fftools/thread_queue.o \
 		ffmpeg.o \
 		libffmpeg.o
