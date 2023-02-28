@@ -22,7 +22,7 @@ libffmpeg.a: libffmpeg.o ffmpeg.o
 		ffmpeg/fftools/ffmpeg_mux.o \
 		ffmpeg/fftools/ffmpeg_mux_init.o \
 		ffmpeg/fftools/ffmpeg_opt.o \
-		ffmpeg/fftools/fftools/objpool.o \
+		ffmpeg/fftools/objpool.o \
 		ffmpeg/fftools/sync_queue.o \
 		ffmpeg/fftools/thread_queue.o \
 		ffmpeg/fftools/cmdutils.o \
